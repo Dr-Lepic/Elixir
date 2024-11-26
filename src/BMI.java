@@ -7,6 +7,7 @@ public class BMI {
     public BMI() {
         this.currentBMI = 0.0;
         BMILog = new ArrayList<>();
+        BMILog.add("Weight(kg) " + "Height(m) " + "BMI");
     }
 
     public void calculateBMI(double weight, double height) {
@@ -14,5 +15,12 @@ public class BMI {
         currentBMI = bmi;
         String bmiString = weight + " " + height + " " + bmi;
         BMILog.add(bmiString);
+    }
+
+    public double getCurrentBMI() {
+        return currentBMI;
+    }
+    public void showBMILog() {
+        System.out.println(BMILog);
     }
 }
