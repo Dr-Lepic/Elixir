@@ -7,20 +7,48 @@ public class BMI {
     public BMI() {
         this.currentBMI = 0.0;
         BMILog = new ArrayList<>();
-        BMILog.add("Weight(kg) " + "Height(m) " + "BMI");
+        BMILog.add("Weight(kg)    " + "Height(m)    " + "BMI   " + "  Status");
     }
 
     public void calculateBMI(double weight, double height) {
         double bmi = weight / (height * height);
         currentBMI = bmi;
-        String bmiString = weight + " " + height + " " + bmi;
+        String bmiString = weight + "            " + height + "       " + bmi + "   " + getBMIStatus();
         BMILog.add(bmiString);
     }
 
     public double getCurrentBMI() {
         return currentBMI;
     }
+
     public void showBMILog() {
-        System.out.println(BMILog);
+        for (String s : BMILog) {
+            System.out.println(s);
+        }
+    }
+
+    // bmi suggestion
+
+    public String getBMIStatus(){
+        if(currentBMI < 18.5){
+            return "Underweight";
+        }
+        else if(currentBMI < 25){
+            return "Normal Weight";
+        }
+        else if(currentBMI < 30){
+            return "Overweight";
+        }
+        else if(currentBMI < 35){
+            return "Class I Obesity";
+        }
+        else if(currentBMI < 40){
+            return "Class II Obesity";
+        }
+        else if(currentBMI >= 40){
+            return "Class III Obesity";
+        }
+
+        return "Invalid";
     }
 }
