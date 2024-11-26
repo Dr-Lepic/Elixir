@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class BMI {
-    double currentBMI;
-    ArrayList<String> BMILog;
+   private double currentBMI;
+   private ArrayList<String> BMILog;
 
     public BMI() {
         this.currentBMI = 0.0;
