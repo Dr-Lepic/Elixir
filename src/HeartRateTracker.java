@@ -5,13 +5,13 @@ public class HeartRateTracker {
     private ArrayList<String> heartRateLog = new ArrayList<>();
 
     public HeartRateTracker() {
-        heartRateLog.add("Date         Rate(bpm)  Status");
+        heartRateLog.add("Date     Time    Rate(bpm)  Status");
     }
 
     public void addReading(int rate) {
-        String date = Utils.formatDate(new Date());
+        String date = Utils.formatDateAndTime(new Date());
         String status = getStatus(rate);
-        heartRateLog.add(String.format("%-12s %-10d %s", date, rate, status));
+        heartRateLog.add(String.format("%-16s %-10d %s", date, rate, status));
     }
 
     private String getStatus(int rate) {
