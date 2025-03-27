@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class BMI {
    private double currentBMI;
-   private ArrayList<String> BMILog;
+   public ArrayList<String> BMILog;
 
     public BMI() {
         this.currentBMI = 0.0;
         BMILog = new ArrayList<>();
-        BMILog.add("Weight(kg)    " + "Height(m)    " + "BMI   " + "  Status");
+        BMILog.add("Weight(kg)    Height(m)    BMI      Status");
     }
 
     public void calculateBMI(double weight, double height) {
         double bmi = weight / (height * height);
         currentBMI = bmi;
-        String bmiString = weight + "            " + height + "       " + bmi + "   " + getBMIStatus();
+        String bmiString = String.format("%-14.1f%-13.2f%-8.1f%s", weight, height, bmi, getBMIStatus());
         BMILog.add(bmiString);
     }
 
