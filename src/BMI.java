@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
 
 public class BMI {
    private double currentBMI;
-   public ArrayList<String> BMILog;
+    Date lastUpdated;
+    public ArrayList<String> BMILog;
 
     public BMI() {
         this.currentBMI = 0.0;
@@ -11,10 +14,15 @@ public class BMI {
     }
 
     public void calculateBMI(double weight, double height) {
+        if(Objects.equals(lastUpdated, new Date())) {
+            System.out.println("BMI already calculated today");
+            return;
+        }
         double bmi = weight / (height * height);
         currentBMI = bmi;
         String bmiString = String.format("%-14.1f%-13.2f%-8.1f%s", weight, height, bmi, getBMIStatus());
         BMILog.add(bmiString);
+        lastUpdated = new Date();
     }
 
     public double getCurrentBMI() {

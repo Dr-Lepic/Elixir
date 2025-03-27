@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
 
 public class BMR {
     private double currentBMR;
+    Date lastUpdated;
     private ArrayList<String> BMRLog = new ArrayList<>();
 
     public BMR() {
@@ -9,6 +12,10 @@ public class BMR {
     }
 
     public void calculateBMR(double weight, double height, int age, String activityLevel) {
+        if(Objects.equals(lastUpdated, new Date())) {
+            System.out.println("BMR already calculated today");
+            return;
+        }
         double bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
 
         currentBMR = bmr;
@@ -17,6 +24,7 @@ public class BMR {
         String logEntry = String.format("%-11.1f %-10.1f %-4d %-8.1f %-9.1f ",
                  weight, height, age, bmr, tdee);
         BMRLog.add(logEntry);
+        lastUpdated = new Date();
     }
 
     private double calculateTDEE(double bmr, String activityLevel) {
