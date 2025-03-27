@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 public class HeartRateTracker {
     private ArrayList<String> heartRateLog = new ArrayList<>();
@@ -9,7 +8,7 @@ public class HeartRateTracker {
     }
 
     public void addReading(int rate) {
-        String date = Utils.formatDateAndTime(new Date());
+        String date = Utils.formatDateAndTime();
         String status = getStatus(rate);
         heartRateLog.add(String.format("%-16s %-10d %s", date, rate, status));
     }

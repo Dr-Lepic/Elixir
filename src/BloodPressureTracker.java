@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 public class BloodPressureTracker {
     private ArrayList<String> bpLog = new ArrayList<>();
@@ -9,7 +8,7 @@ public class BloodPressureTracker {
     }
 
     public void addReading(int systolic, int diastolic) {
-        String date = Utils.formatDateAndTime(new Date());
+        String date = Utils.formatDateAndTime();
         String category = categorize(systolic, diastolic);
         bpLog.add(String.format("%-16s %-9d %-10d %s", date, systolic, diastolic, category));
     }

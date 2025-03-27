@@ -1,6 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class WaterIntakeTracker {
     private int dailyGoal = 4000; // ml
@@ -12,11 +10,10 @@ public class WaterIntakeTracker {
     }
 
     public void addIntake(int amount) {
-        Date date = new Date();
         currentIntake += amount;
         String status = currentIntake >= dailyGoal ? "Goal Met" : "Goal Not Met";
         String logEntry = String.format("%-12s %-10d %d/%-7d %s",
-                Utils.formatDate(date), amount, currentIntake, dailyGoal, status);
+                Utils.formatDate(), amount, currentIntake, dailyGoal, status);
         intakeLog.add(logEntry);
     }
 
