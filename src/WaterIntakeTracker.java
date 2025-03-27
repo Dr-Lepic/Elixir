@@ -13,12 +13,10 @@ public class WaterIntakeTracker {
 
     public void addIntake(int amount) {
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        String formattedDate = formatter.format(date);
         currentIntake += amount;
         String status = currentIntake >= dailyGoal ? "Goal Met" : "Goal Not Met";
         String logEntry = String.format("%-10s %-10d %d/%-7d %s",
-                formattedDate, amount, currentIntake, dailyGoal, status);
+                Utils.formatDate(date), amount, currentIntake, dailyGoal, status);
         intakeLog.add(logEntry);
     }
 
