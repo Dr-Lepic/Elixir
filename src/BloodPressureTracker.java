@@ -11,13 +11,14 @@ public class BloodPressureTracker {
         String date = Utils.formatDateAndTime();
         String category = categorize(systolic, diastolic);
         bpLog.add(String.format("%-16s %-9d %-10d %s", date, systolic, diastolic, category));
+        System.out.println("\nBlood pressure logged successfully!");
     }
 
     private String categorize(int systolic, int diastolic) {
-        if (systolic < 120 && diastolic < 80) return "Normal";
-        if (systolic < 130 && diastolic < 80) return "Elevated";
-        if (systolic < 140 || diastolic < 90) return "Hypertension Stage 1";
-        if (systolic < 180 || diastolic < 120) return "Hypertension Stage 2";
+        if (systolic <= 120 && diastolic <= 80) return "Normal";
+        if (systolic <= 130 && diastolic <= 80) return "Elevated";
+        if (systolic <= 140 || diastolic <= 90) return "Hypertension Stage 1";
+        if (systolic <= 180 || diastolic <= 120) return "Hypertension Stage 2";
         return "Hypertensive Crisis";
     }
 

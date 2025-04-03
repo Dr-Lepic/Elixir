@@ -73,6 +73,7 @@ public class App {
                 case 3: handleWaterIntakeMenu(); break;
                 case 4: handleWorkoutMenu(); break;
                 case 5: handleHeartRateMenu(); break;
+                case 6: handleBloodPressureMenu(); break;
                 case 0: System.exit(0);
                 default: System.out.println("Invalid choice");
             }
@@ -295,5 +296,45 @@ public class App {
             waitForUser();
         }
     }
+
+    private void handleBloodPressureMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t BLOOD PRESSURE TRACKER ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Add Blood Pressure Reading");
+            System.out.println("2. Show Blood Pressure Log");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter systolic pressure: ");
+                    int systolic = scanner.nextInt();
+                    System.out.print("Enter diastolic pressure: ");
+                    int diastolic = scanner.nextInt();
+                    scanner.nextLine();
+                    bpTracker.addReading(systolic, diastolic);
+                    break;
+                case 2:
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    bpTracker.showLog();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
+
 
 }
