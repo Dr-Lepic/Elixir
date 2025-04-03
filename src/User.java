@@ -77,7 +77,9 @@ public class User {
     public String  getLastHeightUpdate() { return lastHeightUpdate; }
 
     public void displayUserDetails() {
-        System.out.println("\n=== User Details ===");
+        System.out.println("\t\t------------------------");
+        System.out.println("\t\t    User Details        ");
+        System.out.println("\t\t------------------------");
         System.out.printf("Weight: %.1f kg (last updated: %s)\n", weight, lastWeightUpdate);
         System.out.printf("Height: %.2f m (last updated: %s)\n", height, lastHeightUpdate);
         System.out.printf("Age: %d years\n", age);
