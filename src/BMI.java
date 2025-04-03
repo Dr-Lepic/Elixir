@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class BMI {
    private double currentBMI;
-    Date lastUpdated;
+    String lastUpdated;
     public ArrayList<String> BMILog;
 
     public BMI() {
@@ -14,7 +14,7 @@ public class BMI {
     }
 
     public boolean calculateBMI(double weight, double height) {
-        if(Objects.equals(lastUpdated, new Date())) {
+        if(Objects.equals(lastUpdated, Utils.formatDate())) {
             System.out.println("BMI already calculated today");
             return false;
         }
@@ -22,7 +22,7 @@ public class BMI {
         currentBMI = bmi;
         String bmiString = String.format("%-14.1f%-13.2f%-8.1f%s", weight, height, bmi, getBMIStatus());
         BMILog.add(bmiString);
-        lastUpdated = new Date();
+        lastUpdated = Utils.formatDate();
         return true;
     }
 
