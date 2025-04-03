@@ -70,6 +70,7 @@ public class App {
             switch (choice) {
                 case 1: handleUserProfileMenu(); break;
                 case 2: handleBMIBMRMenu(); break;
+                case 3: handleWaterIntakeMenu(); break;
                 case 9: System.exit(0);
                 default: System.out.println("Invalid choice");
             }
@@ -176,5 +177,44 @@ public class App {
         }
 
     }
+
+    private void handleWaterIntakeMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t  WATER INTAKE MENU    ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Add Water Intake");
+            System.out.println("2. Show Water Intake Log");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter amount in ml: ");
+                    int intake = scanner.nextInt();
+                    scanner.nextLine();
+                    waterTracker.addIntake(intake);
+                    break;
+                case 2:
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    waterTracker.showIntakeLog();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
+
+
 
 }
