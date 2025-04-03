@@ -11,10 +11,10 @@ public class BMR {
         BMRLog.add("Weight(kg)  Height(cm)  Age  BMR      TDEE");
     }
 
-    public void calculateBMR(double weight, double height, int age, String activityLevel) {
+    public boolean calculateBMR(double weight, double height, int age, String activityLevel) {
         if(Objects.equals(lastUpdated, new Date())) {
             System.out.println("BMR already calculated today");
-            return;
+            return false;
         }
         double bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
 
@@ -25,6 +25,7 @@ public class BMR {
                  weight, height, age, bmr, tdee);
         BMRLog.add(logEntry);
         lastUpdated = new Date();
+        return true;
     }
 
     private double calculateTDEE(double bmr, String activityLevel) {
