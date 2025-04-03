@@ -61,7 +61,7 @@ public class App {
             System.out.println("6. Blood Pressure Tracker");
             System.out.println("7. Medicine Tracker");
             System.out.println("8. Disease Tracker");
-            System.out.println("9. Exit");
+            System.out.println("0. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -72,7 +72,8 @@ public class App {
                 case 2: handleBMIBMRMenu(); break;
                 case 3: handleWaterIntakeMenu(); break;
                 case 4: handleWorkoutMenu(); break;
-                case 9: System.exit(0);
+                case 5: handleHeartRateMenu(); break;
+                case 0: System.exit(0);
                 default: System.out.println("Invalid choice");
             }
         }
@@ -220,7 +221,7 @@ public class App {
         while (true) {
             clearConsole();
             System.out.println("\t\t------------------------");
-            System.out.println("\t\t    WORKOUT MENU        ");
+            System.out.println("\t\t      WORKOUT MENU      ");
             System.out.println("\t\t------------------------\n");
             System.out.println("1. Log Workout");
             System.out.println("2. Show Workout Log");
@@ -247,6 +248,43 @@ public class App {
                     System.out.println();
                     workoutTracker.showWorkoutLog();
                     System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
+
+    private void handleHeartRateMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t   HEART RATE TRACKER     ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Add Heart Rate Reading");
+            System.out.println("2. Show Heart Rate Log");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter heart rate (bpm): ");
+                    int rate = scanner.nextInt();
+                    scanner.nextLine();
+                    heartRateTracker.addReading(rate);
+                    break;
+                case 2:
+                    System.out.print("----".repeat(10));
+                    System.out.println();
+                    heartRateTracker.showLog();
+                    System.out.print("----".repeat(10));
                     System.out.println();
                     break;
                 case 3:
