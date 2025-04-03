@@ -13,16 +13,17 @@ public class BMI {
         BMILog.add("Weight(kg)    Height(m)    BMI      Status");
     }
 
-    public void calculateBMI(double weight, double height) {
+    public boolean calculateBMI(double weight, double height) {
         if(Objects.equals(lastUpdated, new Date())) {
             System.out.println("BMI already calculated today");
-            return;
+            return false;
         }
         double bmi = weight / (height * height);
         currentBMI = bmi;
         String bmiString = String.format("%-14.1f%-13.2f%-8.1f%s", weight, height, bmi, getBMIStatus());
         BMILog.add(bmiString);
         lastUpdated = new Date();
+        return true;
     }
 
     public double getCurrentBMI() {
