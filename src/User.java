@@ -27,42 +27,30 @@ public class User {
         this.lastHeightUpdate = Utils.formatDate();
     }
 
-    public boolean updateWeight(double newWeight) {
+    public void updateWeight(double newWeight) {
         String  today = Utils.formatDate();
 
-        if (lastWeightUpdate.equals(today)) {
-            System.out.println("Can't update weight more than once per day.");
-            return false;
-        }
-
-        if (Math.abs(newWeight - weight) > WEIGHT_THRESHOLD) {
+        if (Math.abs(newWeight - weight) > WEIGHT_THRESHOLD && lastWeightUpdate.equals(today)) {
             System.out.printf("Weight change exceeds threshold (%.1f kg). Update not allowed.\n", WEIGHT_THRESHOLD);
-            return false;
+            return;
         }
 
         weight = newWeight;
         lastWeightUpdate = today;
         System.out.println("Weight updated successfully.");
-        return true;
     }
 
-    public boolean updateHeight(double newHeight) {
+    public void updateHeight(double newHeight) {
         String  today = Utils.formatDate();
 
-        if (lastHeightUpdate.equals(today)) {
-            System.out.println("Can't update height more than once per day.");
-            return false;
-        }
-
-        if (Math.abs(newHeight - height) > HEIGHT_THRESHOLD) {
+        if (Math.abs(newHeight - height) > HEIGHT_THRESHOLD && lastHeightUpdate.equals(today)) {
             System.out.printf("Height change exceeds threshold (%.2f m). Update not allowed.\n", HEIGHT_THRESHOLD);
-            return false;
+            return;
         }
 
         height = newHeight;
         lastHeightUpdate = today;
         System.out.println("Height updated successfully.");
-        return true;
     }
 
     public void updateAge(int newAge) {
