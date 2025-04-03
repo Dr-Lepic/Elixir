@@ -18,16 +18,18 @@ public class WorkoutTracker {
         workoutLog.add("Date         Exercise        Duration(min)  Calories");
     }
 
-    public void logWorkout(String exerciseName, int durationMinutes) {
+    public boolean logWorkout(String exerciseName, int durationMinutes) {
         try {
             Exercise exercise = Exercise.valueOf(exerciseName.toUpperCase());
             double caloriesBurned = calculateCaloriesBurned(exercise, durationMinutes);
             String date = Utils.formatDate();
             String logEntry = String.format("%-12s %-20s %-11d %.1f", date, exercise, durationMinutes, caloriesBurned);
             workoutLog.add(logEntry);
+            return true;
         } catch (IllegalArgumentException e) {
             System.out.println("Invalid exercise name. Available exercises: " +
                     Arrays.toString(Exercise.values()));
+            return false;
         }
     }
 

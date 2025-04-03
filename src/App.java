@@ -71,6 +71,7 @@ public class App {
                 case 1: handleUserProfileMenu(); break;
                 case 2: handleBMIBMRMenu(); break;
                 case 3: handleWaterIntakeMenu(); break;
+                case 4: handleWorkoutMenu(); break;
                 case 9: System.exit(0);
                 default: System.out.println("Invalid choice");
             }
@@ -215,6 +216,46 @@ public class App {
         }
     }
 
+    private void handleWorkoutMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t    WORKOUT MENU        ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Log Workout");
+            System.out.println("2. Show Workout Log");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
 
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Available exercises: " + WorkoutTracker.getAvailableExercises());
+                    System.out.print("Enter exercise name: ");
+                    String exercise = scanner.nextLine();
+                    System.out.print("Enter duration (minutes): ");
+                    int duration = scanner.nextInt();
+                    scanner.nextLine();
+                    if(workoutTracker.logWorkout(exercise, duration)){
+                        System.out.println("\nWorkout logged successfully!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    workoutTracker.showWorkoutLog();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
 
 }
