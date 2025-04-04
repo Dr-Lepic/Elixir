@@ -9,6 +9,7 @@ public class DiseaseTracker {
 
     public void addDisease(String date, String disease, String description) {
         diseaseLog.add(String.format("%-12s %-10s %s", date, disease, description));
+        System.out.println("\nDisease logged successfully!");
     }
 
     public void showDiseaseHistory() {

@@ -74,6 +74,8 @@ public class App {
                 case 4: handleWorkoutMenu(); break;
                 case 5: handleHeartRateMenu(); break;
                 case 6: handleBloodPressureMenu(); break;
+                case 7: handleMedicineMenu(); break;
+                case 8: handleDiseaseMenu(); break;
                 case 0: System.exit(0);
                 default: System.out.println("Invalid choice");
             }
@@ -335,6 +337,103 @@ public class App {
             waitForUser();
         }
     }
+
+
+    private void handleMedicineMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t    MEDICINE TRACKER     ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Add Medicine");
+            System.out.println("2. Show Daily Schedule");
+            System.out.println("3. Show Weekly Summary");
+            System.out.println("4. Return to Main Menu");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Medicine name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter dosage: ");
+                    String dosage = scanner.nextLine();
+                    System.out.print("Enter time of day: ");
+                    String time = scanner.nextLine();
+                    System.out.print("Enter days (comma-separated): ");
+                    String daysInput = scanner.nextLine();
+                    List<String> days = Arrays.asList(daysInput.split(", "));
+                    medTracker.addMedicine(name, dosage, time, days);
+                    break;
+                case 2:
+                    System.out.print("Enter day: ");
+                    String day = scanner.nextLine();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    medTracker.showDailySchedule(day);
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    medTracker.showWeeklySummary();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
+
+
+    private void handleDiseaseMenu() {
+        while (true) {
+            clearConsole();
+            System.out.println("\t\t------------------------");
+            System.out.println("\t\t    DISEASE TRACKER    ");
+            System.out.println("\t\t------------------------\n");
+            System.out.println("1. Add Disease");
+            System.out.println("2. Show Disease History");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter date (DD/MM/YYYY): ");
+                    String date = scanner.nextLine();
+                    System.out.print("Enter disease name: ");
+                    String diseaseName = scanner.nextLine();
+                    System.out.print("Enter description: ");
+                    String description = scanner.nextLine();
+                    diseaseTracker.addDisease(date, diseaseName, description);
+                    break;
+                case 2:
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    diseaseTracker.showDiseaseHistory();
+                    System.out.print("----".repeat(13));
+                    System.out.println();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            waitForUser();
+        }
+    }
+
+
 
 
 }

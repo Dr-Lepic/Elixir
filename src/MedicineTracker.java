@@ -19,6 +19,7 @@ public class MedicineTracker {
 
     public void addMedicine(String name, String dose, String schedule, List<String> days) {
         medicines.add(new Medicine(name, dose, schedule, days));
+        System.out.println("\nMedicine added successfully!");
     }
 
     public void showDailySchedule(String day) {
