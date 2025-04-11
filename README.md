@@ -1,4 +1,4 @@
-# Elixir - Health Tracking Application
+# Elixir - Your Personal Health Tracker
 
 ![Health Tracking](https://img.shields.io/badge/Health-Tracking-brightgreen)
 ![Java](https://img.shields.io/badge/Language-Java-orange)
