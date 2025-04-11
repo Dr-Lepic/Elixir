@@ -5,7 +5,7 @@
 
 
 ## Description
-Elixir is a command line based Health Tracking application. It helps the users to monitor fitness, nutrition, and overall well-being. The application raises user's awareness by tracking BMI/BMR, water intake, workouts, heart rate, blood pressure, medications, and diseases—all under the theme of "Savor the Flavor of Health," emphasizing mindful health management.
+Elixir is a command line based Health Tracking application. It helps the users to monitor fitness, nutrition, and overall well-being. The application raises user's awareness by tracking BMI/BMR, water intake, workouts, heart rate, blood pressure, medications, and diseases—all under the theme of "Savor the Favor of Health," emphasizing mindful health management.
 
 ### Objective
 - Track key health metrics (BMI, BMR, hydration, workouts, vitals)
