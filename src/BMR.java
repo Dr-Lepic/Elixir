@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-public class BMR {
+public class BMR implements Serializable {
     private double currentBMR;
     String  lastUpdated;
     private ArrayList<String> BMRLog = new ArrayList<>();

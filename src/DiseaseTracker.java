@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DiseaseTracker {
+public class DiseaseTracker implements Serializable {
     private ArrayList<String> diseaseLog = new ArrayList<>();
 
     public DiseaseTracker() {

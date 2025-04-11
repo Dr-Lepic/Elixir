@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class WorkoutTracker {
+public class WorkoutTracker implements Serializable {
     public enum Exercise {
         RUNNING(8.0), CYCLING(7.5), SWIMMING(6.0), WEIGHTLIFTING(3.5), YOGA(2.8);
         final double met;

@@ -54,8 +54,16 @@ public class Main {
 //        System.out.println();
 //        System.out.print("Enter your weight in kg: ");
 //        System.out.print("Enter your height in meters: ");
-        App app = new App();
-        app.initializeUser();
-        app.showMainMenu();
+        App app = Utils.loadData();
+        if (app == null) {
+            app = new App();
+            app.initializeUser();
+            app.showMainMenu();
+        }else {
+            System.out.println("Welcome back to Elixir!");
+            System.out.println("Your previous data has been loaded successfully.");
+            app.showMainMenu();
+        }
+
     }
 }

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BloodPressureTracker {
+public class BloodPressureTracker implements Serializable {
     private ArrayList<String> bpLog = new ArrayList<>();
 
     public BloodPressureTracker() {

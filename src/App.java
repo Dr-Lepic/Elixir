@@ -1,6 +1,11 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.*;
+import java.io.Serializable;
 import java.util.*;
 
-public class App {
+public class App implements Serializable {
+    public static final String DATA = "data.ser";
     private static Scanner scanner = new Scanner(System.in);
     private User user = User.getInstance();
     private BMI bmi = new BMI();
@@ -76,7 +81,9 @@ public class App {
                 case 6: handleBloodPressureMenu(); break;
                 case 7: handleMedicineMenu(); break;
                 case 8: handleDiseaseMenu(); break;
-                case 0: System.exit(0);
+                case 0:
+                    saveData();
+                    System.exit(0);
                 default: System.out.println("Invalid choice");
             }
         }
@@ -433,6 +440,14 @@ public class App {
         }
     }
 
+
+    private void saveData() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DATA))) {
+            oos.writeObject(this);
+        } catch (IOException e) {
+            System.out.println("Error saving data: " + e.getMessage());
+        }
+    }
 
 
 

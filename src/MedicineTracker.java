@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class MedicineTracker {
-    private static class Medicine {
+public class MedicineTracker implements Serializable {
+    private static class Medicine implements Serializable {
         String name;
         String dose;
         String schedule;

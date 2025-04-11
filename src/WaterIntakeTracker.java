@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WaterIntakeTracker {
+public class WaterIntakeTracker implements Serializable {
     private int dailyGoal = 4000; // ml
     private int currentIntake;
     private ArrayList<String> intakeLog = new ArrayList<>();

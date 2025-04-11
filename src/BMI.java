@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-public class BMI {
+public class BMI implements Serializable {
    private double currentBMI;
     String lastUpdated;
     public ArrayList<String> BMILog;

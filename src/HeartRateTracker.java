@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HeartRateTracker {
+public class HeartRateTracker implements Serializable {
     private ArrayList<String> heartRateLog = new ArrayList<>();
 
     public HeartRateTracker() {
