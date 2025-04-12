@@ -43,4 +43,7 @@ public class BMR implements Serializable {
     public void showBMRLog() {
         BMRLog.forEach(System.out::println);
     }
+    public double getCurrentBMR() {
+        return currentBMR;
+    }
 }

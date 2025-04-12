@@ -32,7 +32,7 @@ public class User implements Serializable {
     public void updateWeight(double newWeight) {
         String  today = Utils.formatDate();
 
-        if (Math.abs(newWeight - weight) > WEIGHT_THRESHOLD && lastWeightUpdate.equals(today)) {
+        if (Math.abs(newWeight - weight) > WEIGHT_THRESHOLD ) {
             System.out.printf("Weight change exceeds threshold (%.1f kg). Update not allowed.\n", WEIGHT_THRESHOLD);
             return;
         }
@@ -45,7 +45,7 @@ public class User implements Serializable {
     public void updateHeight(double newHeight) {
         String  today = Utils.formatDate();
 
-        if (Math.abs(newHeight - height) > HEIGHT_THRESHOLD && lastHeightUpdate.equals(today)) {
+        if (Math.abs(newHeight - height) > HEIGHT_THRESHOLD) {
             System.out.printf("Height change exceeds threshold (%.2f m). Update not allowed.\n", HEIGHT_THRESHOLD);
             return;
         }
